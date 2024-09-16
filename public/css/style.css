@@ -1,0 +1,48 @@
+body {
+    background-color: #E9EFEC;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 10% 20%;
+    box-shadow: 3px 3px 15px #16423C;
+}
+
+.card-header {
+    background-color: transparent;
+    border: none;
+    padding-left: 20%;
+}
+
+.card-header img {
+    width: 60%;
+    padding-top: 15px;
+}
+
+.button-bottom {
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+    text-align: center;
+}
+.button-float{
+    background-color: #16423C;
+    width: 5em;
+    height: 5em;
+    border-radius: 20%;
+    text-align: center;
+    padding-top: 2em;
+    color: white;
+}
+.button-float:hover {
+    background-color: #1e5c54;
+    color: wheat;
+}
+
+#btn-carregar {
+    width: 60%;
+    margin-left: 5rem;
+}
