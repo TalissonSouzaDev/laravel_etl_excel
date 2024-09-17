@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("cpf");
             $table->string("email");
             $table->string("telefone");
-            $table->date("dt_nascimento");
+            $table->timestamp("dt_nascimento");
             $table->string("genero");
             $table->timestamps();
         });

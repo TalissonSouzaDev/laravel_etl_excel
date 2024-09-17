@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ETLController;
 use App\Imports\ETLRegistroImport;
 use App\Models\ETLRegistros;
 use Illuminate\Http\Request;
@@ -16,19 +17,11 @@ use Maatwebsite\Excel\Facades\Excel;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/dashboard', [ETLController::class,"dashboard"])->name("dashboard");
+Route::get('/upload', [ETLController::class,"UploadPage"])->name("upload");
+Route::get('/registros', [ETLController::class,"Registros"])->name("registros");
+Route::post('/upload/file', [ETLController::class,'UploadFile'])->name("uploadfile");
 
-Route::get('/upload', function () {
-    return view('upload');
-})->name("upload");
-
-Route::get('/registros', function () {
-    $etlregistros = ETLRegistros::paginate(10);
-    return view('registros',compact("etlregistros"));
-})->name("registros");
-
-Route::post('/upload/file', function (Request $request) {
-    //dd($request->file("upload"));
-    Excel::import(new ETLRegistroImport,$request->file("upload"));
-
-    return true;
-})->name("uploadfile");
+Route::fallback(function() {
+    return redirect()->route("upload");
+});
